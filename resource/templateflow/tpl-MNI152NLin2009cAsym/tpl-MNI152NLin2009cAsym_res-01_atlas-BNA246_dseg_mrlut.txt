@@ -1,4 +1,4 @@
-0	???	Unknown	25	5	25	0
+0	???	Unknown	0	0	0	0
 1	A8mL	A8m_L	0	255	0	0
 2	A8mR	A8m_R	0	0	255	0
 3	A8dlL	A8dl_L	255	0	0	0

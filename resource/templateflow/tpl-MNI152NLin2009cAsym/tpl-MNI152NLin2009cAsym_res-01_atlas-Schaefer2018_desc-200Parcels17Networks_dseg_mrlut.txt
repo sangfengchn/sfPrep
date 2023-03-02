@@ -1,4 +1,4 @@
-index	???	Unknow	r	g	b	a
+0	???	Unknown	0	0	0	0
 1	17NetworksLHVisCentExStr1	17Networks_LH_VisCent_ExStr_1	120	18	134	255
 2	17NetworksLHVisCentExStr2	17Networks_LH_VisCent_ExStr_2	120	18	136	255
 3	17NetworksLHVisCentExStr3	17Networks_LH_VisCent_ExStr_3	120	18	137	255

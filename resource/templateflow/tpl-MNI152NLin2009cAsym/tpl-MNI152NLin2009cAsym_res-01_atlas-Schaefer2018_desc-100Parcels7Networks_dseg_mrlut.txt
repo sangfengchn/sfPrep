@@ -11,7 +11,7 @@
 10	7NetworksLHSomMot1	7Networks_LH_SomMot_1	70	130	179	255
 11	7NetworksLHSomMot2	7Networks_LH_SomMot_2	70	130	181	255
 12	7NetworksLHSomMot3	7Networks_LH_SomMot_3	70	130	182	255
-13	7NetworksLHSomMot4	7Networks_LH_SomMot_4	70	130	183	255
+13	7NetworksLHSomMot4	7Networks_LH_SomMot_4   70	130	183	255
 14	7NetworksLHSomMot5	7Networks_LH_SomMot_5	70	130	184	255
 15	7NetworksLHSomMot6	7Networks_LH_SomMot_6	70	130	185	255
 16	7NetworksLHDorsAttnPost1	7Networks_LH_DorsAttn_Post_1	0	118	13	255

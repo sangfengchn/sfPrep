@@ -1,4 +1,4 @@
-index	???	Unknow	r	g	b	a
+0	???	Unknown	0	0	0	0
 1	7NetworksLHVis1	7Networks_LH_Vis_1	120	14	127	255
 2	7NetworksLHVis2	7Networks_LH_Vis_2	120	14	128	255
 3	7NetworksLHVis3	7Networks_LH_Vis_3	120	14	129	255
