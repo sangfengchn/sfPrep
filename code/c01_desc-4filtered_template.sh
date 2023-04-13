@@ -23,14 +23,18 @@ NUMPROC=#NUMPROC#
 roiPath=#ROIPATH#
 roiPrefix=#ROIPREFIX#
 
-SIMG=#SIMG#
+SIMGMRTRIX3=#SIMGMRTRIX3#
+SIMGANTS=#SIMGANTS#
 
 # >>>>>>>>>>> running >>>>>>>>>>>>>>>
+cd $proj
 subDwiPath=$der/$SUBID/dwi
 subAnatPath=$der/$SUBID/anat
+subFibsPath = $der/$SUBID/fibs
+[ ! -d $subFibsPath ] && mkdir -p $subFibsPath
 
 # for atlas: mni to t1w
-singularity exec $SIMG antsApplyTransforms \
+singularity exec $SIMGANTS antsApplyTransforms \
     -d 3 \
     -n NearestNeighbor \
     -i $roiPath \
@@ -40,7 +44,7 @@ singularity exec $SIMG antsApplyTransforms \
     -t $subAnatPath/t1w2mni1InverseWarp.nii.gz
     
 # for atlas: t1w to dwi
-singularity exec $SIMG antsApplyTransforms \
+singularity exec $SIMGANTS antsApplyTransforms \
     -d 3 \
     -n NearestNeighbor \
     -i $subAnatPath/mni2t1wRoi_${roiPrefix}.nii.gz \
@@ -48,11 +52,13 @@ singularity exec $SIMG antsApplyTransforms \
     -r $subDwiPath/b0_brain.nii.gz  \
     -t [${subAnatPath}/t1w2dwi0GenericAffine.mat,1]
 
-singularity exec $SIMG tckedit \
+singularity exec $SIMGMRTRIX3 tckedit \
     -include $subAnatPath/t1w2dwiRoi_${roiPrefix}.nii.gz \
     -tck_weights_in $subDwiPath/sift_weight.txt \
     -nthreads $NUMPROC \
     $subDwiPath/streamlines.tck \
     $subDwiPath/streamlines_${roiPrefix}.tck
+
+mv $subDwiPath/streamlines_${roiPrefix}.tck $subFibsPath/streamlines_${roiPrefix}.tck
 
 echo "Done."

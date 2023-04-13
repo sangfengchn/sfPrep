@@ -27,7 +27,8 @@ tplPath=#TPLPATH#
 tplMNI152_t1w=#TPLMNI152T1W#
 tplMNI152_brain=#TPLMNI152BRAIN#
 tplMNI152_BrainMask=#TPLMNI152BRAINMASK#
-SIMG=#SIMG#
+SIMGMRTRIX3=#SIMGMRTRIX3#
+SIMGANTS=#SIMGANTS#
 
 # processing
 ## >>>>>>>>>>>>>> dwi preprocessing <<<<<<<<<<<<<<<<
@@ -44,23 +45,23 @@ cp $raw/$SUBID/dwi/* $subDwiPath/
 for i in $subDwiPath/*.nii.gz
 do
     echo $i
-    singularity exec $SIMG mrconvert $i ${i/.nii.gz/.mif} -fslgrad ${i/.nii.gz/.bvec} ${i/.nii.gz/.bval}
+    singularity exec $SIMGMRTRIX3 mrconvert $i ${i/.nii.gz/.mif} -fslgrad ${i/.nii.gz/.bvec} ${i/.nii.gz/.bval}
 done
-singularity exec $SIMG mrcat $subDwiPath/*.mif $subDwiPath/dwi.mif
+singularity exec $SIMGMRTRIX3 mrcat $subDwiPath/*.mif $subDwiPath/dwi.mif
 
 # denoised, Gibbs ringing removal, and motion corrected.
-singularity exec $SIMG dwidenoise \
+singularity exec $SIMGMRTRIX3 dwidenoise \
     $subDwiPath/dwi.mif \
     $subDwiPath/dwi_denoised.mif \
     -nthreads $NUMPROC
     
-singularity exec $SIMG mrdegibbs \
+singularity exec $SIMGMRTRIX3 mrdegibbs \
     $subDwiPath/dwi_denoised.mif \
     $subDwiPath/dwi_denoised_unringed.mif \
     -axes 0,1 \
     -nthreads $NUMPROC
 
-singularity exec $SIMG dwifslpreproc \
+singularity exec $SIMGMRTRIX3 dwifslpreproc \
     $subDwiPath/dwi_denoised_unringed.mif \
     $subDwiPath/dwi_preprocessed.mif \
     -rpe_none \
@@ -68,8 +69,8 @@ singularity exec $SIMG dwifslpreproc \
     -eddy_options "--slm=linear" \
     -nthreads $NUMPROC
 # extract b0 image
-singularity exec $SIMG dwiextract $subDwiPath/dwi_preprocessed.mif - -bzero | singularity exec $SIMG mrmath - mean $subDwiPath/b0.nii.gz -axis 3 -force
-singularity exec $SIMG bet $subDwiPath/b0.nii.gz $subDwiPath/b0_brain.nii.gz -m -f 0.2
+singularity exec $SIMGMRTRIX3 dwiextract $subDwiPath/dwi_preprocessed.mif - -bzero | singularity exec $SIMGMRTRIX3 mrmath - mean $subDwiPath/b0.nii.gz -axis 3 -force
+singularity exec $SIMGMRTRIX3 bet $subDwiPath/b0.nii.gz $subDwiPath/b0_brain.nii.gz -m -f 0.2
 
 # brain extraction from t1w
 subAnatPath=$der/$SUBID/anat
@@ -80,12 +81,12 @@ fi
 mkdir -p $subAnatPath
 
 cp $raw/$SUBID/anat/${SUBID}_T1w.nii.gz $subAnatPath/t1w.nii.gz
-singularity exec $SIMG N4BiasFieldCorrection \
+singularity exec $SIMGANTS N4BiasFieldCorrection \
     -d 3 \
     -i $subAnatPath/t1w.nii.gz \
     -o $subAnatPath/t1w_biased.nii.gz \
     -v
-singularity exec $SIMG antsBrainExtraction.sh \
+singularity exec $SIMGANTS antsBrainExtraction.sh \
     -d 3 \
     -a $subAnatPath/t1w_biased.nii.gz \
     -e $tplMNI152_t1w \
@@ -96,14 +97,14 @@ mv $subAnatPath/tmp/BrainExtractionMask.nii.gz $subAnatPath/t1w_BrainMask.nii.gz
 rm -r $subAnatPath/tmp
 
 # t1w to mni
-singularity exec $SIMG antsRegistrationSyNQuick.sh \
+singularity exec $SIMGANTS antsRegistrationSyNQuick.sh \
     -d 3 \
     -f $tplMNI152_brain \
     -m $subAnatPath/t1w_brain.nii.gz \
     -o $subAnatPath/t1w2mni
 
 # t1w to dwi
-singularity exec $SIMG antsRegistrationSyNQuick.sh \
+singularity exec $SIMGANTS antsRegistrationSyNQuick.sh \
     -d 3 \
     -f $subDwiPath/b0_brain.nii.gz \
     -m $subAnatPath/t1w_brain.nii.gz \
@@ -111,7 +112,7 @@ singularity exec $SIMG antsRegistrationSyNQuick.sh \
     -t r
 
 # five-tissues-type, 5TT
-singularity exec $SIMG 5ttgen \
+singularity exec $SIMGMRTRIX3 5ttgen \
     fsl \
     $subAnatPath/t1w2dwiWarped.nii.gz \
     $subAnatPath/5ttInDwi.nii.gz \
@@ -122,7 +123,7 @@ singularity exec $SIMG 5ttgen \
     -nthread $NUMPROC
 
 # she interface between white matter and gray matter
-singularity exec $SIMG 5tt2gmwmi \
+singularity exec $SIMGMRTRIX3 5tt2gmwmi \
     $subAnatPath/5ttInDwi.nii.gz \
     $subAnatPath/5ttgmwmiInDwi.nii.gz \
     -force \

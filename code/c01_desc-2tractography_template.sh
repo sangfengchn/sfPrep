@@ -17,9 +17,11 @@ der=#DER#
 SUBID=#SUBID#
 NUMPROC=#NUMPROC#
 
-SIMG=#SIMG#
+SIMGMRTRIX3=#SIMGMRTRIX3#
+SIMGANTS=#SIMGANTS#
 
 # >>>>>>>>>> running >>>>>>>>>>>>>
+cd $proj
 NUMSTREAMLINES=1M
 subDwiPath=$der/$SUBID/dwi
 subAnatPath=$der/$SUBID/anat
@@ -30,7 +32,7 @@ subAnatPath=$der/$SUBID/anat
 #     $subDwiPath/gm_response.txt \
 #     $subDwiPath/csf_response.txt \
 #     -mask $subDwiPath/b0_brain_mask.nii.gz
-singularity exec $SIMG dwi2response \
+singularity exec $SIMGMRTRIX3 dwi2response \
     msmt_5tt \
     $subDwiPath/dwi_preprocessed.mif \
     $subAnatPath/5ttInDwi.nii.gz \
@@ -41,7 +43,7 @@ singularity exec $SIMG dwi2response \
     -nthreads $NUMPROC
 
 # If only two unique b-values are available, it’s also possible to estimate only two tissue compartments, e.g., white matter and CSF. (https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2fod.html)
-singularity exec $SIMG dwi2fod \
+singularity exec $SIMGMRTRIX3 dwi2fod \
     msmt_csd \
     $subDwiPath/dwi_preprocessed.mif \
     $subDwiPath/wm_response_msmt5tt.txt \
@@ -51,7 +53,7 @@ singularity exec $SIMG dwi2fod \
     -force
 
 # tractography
-singularity exec $SIMG tckgen \
+singularity exec $SIMGMRTRIX3 tckgen \
     $subDwiPath/wmfod_msmt5tt.mif \
     $subDwiPath/streamlines.tck \
     -algorithm iFOD2 \
@@ -68,7 +70,7 @@ singularity exec $SIMG tckgen \
     -select $NUMSTREAMLINES \
     -nthreads $NUMPROC
 
-singularity exec $SIMG tcksift2 \
+singularity exec $SIMGMRTRIX3 tcksift2 \
     -act $subAnatPath/5ttInDwi.nii.gz \
     -out_mu $subDwiPath/sift_mu.txt \
     -out_coeffs $subDwiPath/sift_coeffs.txt \
