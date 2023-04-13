@@ -96,6 +96,5 @@ if __name__ == "__main__":
                     roisPath=roisPath, 
                     numProc=numProc, 
                     queue=queueName)
-        
         break
     logging.info("Submit done.")

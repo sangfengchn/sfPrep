@@ -34,7 +34,7 @@ SIMGANTS=#SIMGANTS#
 cd $proj
 subDwiPath=$der/$SUBID/dwi
 subAnatPath=$der/$SUBID/anat
-subNetPath = $der/$SUBID/net
+subNetPath=$der/$SUBID/net
 [ ! -d $subNetPath ] && mkdir -p $subNetPath
 
 # for atlas: mni to t1w

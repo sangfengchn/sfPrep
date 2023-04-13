@@ -1,114 +1,114 @@
 0	???	Unknown	0	0	0	0
-1	FP.L	Frontal Pole	0	0	0	0
-2	FP.R	Frontal Pole	0	0	0	0
-3	INS.L	Insular Cortex	0	0	0	0
-4	INS.R	Insular Cortex	0	0	0	0
-5	F1.L	Superior Frontal Gyrus	0	0	0	0
-6	F1.R	Superior Frontal Gyrus	0	0	0	0
-7	F2.L	Middle Frontal Gyrus	0	0	0	0
-8	F2.R	Middle Frontal Gyrus	0	0	0	0
-9	F3t.L	"Inferior Frontal Gyrus, pars triangularis"	0	0	0	0
-10	F3t.R	"Inferior Frontal Gyrus, pars triangularis"	0	0	0	0
-11	F3o.L	"Inferior Frontal Gyrus, pars opercularis"	0	0	0	0
-12	F3o.R	"Inferior Frontal Gyrus, pars opercularis"	0	0	0	0
-13	PRG.L	Precentral Gyrus	0	0	0	0
-14	PRG.R	Precentral Gyrus	0	0	0	0
-15	TP.L	Temporal Pole	0	0	0	0
-16	TP.R	Temporal Pole	0	0	0	0
-17	T1a.L	"Superior Temporal Gyrus, anterior division"	0	0	0	0
-18	T1a.R	"Superior Temporal Gyrus, anterior division"	0	0	0	0
-19	T1p.L	"Superior Temporal Gyrus, posterior division"	0	0	0	0
-20	T1p.R	"Superior Temporal Gyrus, posterior division"	0	0	0	0
-21	T2a.L	"Middle Temporal Gyrus, anterior division"	0	0	0	0
-22	T2a.R	"Middle Temporal Gyrus, anterior division"	0	0	0	0
-23	T2p.L	"Middle Temporal Gyrus, posterior division"	0	0	0	0
-24	T2p.R	"Middle Temporal Gyrus, posterior division"	0	0	0	0
-25	TO2.L	"Middle Temporal Gyrus, temporooccipital part"	0	0	0	0
-26	TO2.R	"Middle Temporal Gyrus, temporooccipital part"	0	0	0	0
-27	T3a.L	"Inferior Temporal Gyrus, anterior division"	0	0	0	0
-28	T3a.R	"Inferior Temporal Gyrus, anterior division"	0	0	0	0
-29	T3p.L	"Inferior Temporal Gyrus, posterior division"	0	0	0	0
-30	T3p.R	"Inferior Temporal Gyrus, posterior division"	0	0	0	0
-31	TO3.L	"Inferior Temporal Gyrus, temporooccipital part"	0	0	0	0
-32	TO3.R	"Inferior Temporal Gyrus, temporooccipital part"	0	0	0	0
-33	POG.L	Postcentral Gyrus	0	0	0	0
-34	POG.R	Postcentral Gyrus	0	0	0	0
-35	SPL.L	Superior Parietal Lobule	0	0	0	0
-36	SPL.R	Superior Parietal Lobule	0	0	0	0
-37	SGa.L	"Supramarginal Gyrus, anterior division"	0	0	0	0
-38	SGa.R	"Supramarginal Gyrus, anterior division"	0	0	0	0
-39	SGp.L	"Supramarginal Gyrus, posterior division"	0	0	0	0
-40	SGp.R	"Supramarginal Gyrus, posterior division"	0	0	0	0
-41	AG.L	Angular Gyrus	0	0	0	0
-42	AG.R	Angular Gyrus	0	0	0	0
-43	OLs.L	"Lateral Occipital Cortex, superior division"	0	0	0	0
-44	OLs.R	"Lateral Occipital Cortex, superior division"	0	0	0	0
-45	OLi.L	"Lateral Occipital Cortex, inferior division"	0	0	0	0
-46	OLi.R	"Lateral Occipital Cortex, inferior division"	0	0	0	0
-47	CALC.L	Intracalcarine Cortex	0	0	0	0
-48	CALC.R	Intracalcarine Cortex	0	0	0	0
-49	FMC.L	Frontal Medial Cortex	0	0	0	0
-50	FMC.R	Frontal Medial Cortex	0	0	0	0
-51	SMC.L	Juxtapositional Lobule Cortex (formerly Supplementary Motor Cortex)	0	0	0	0
-52	SMC.R	Juxtapositional Lobule Cortex (formerly Supplementary Motor Cortex)	0	0	0	0
-53	SC.L	Subcallosal Cortex	0	0	0	0
-54	SC.R	Subcallosal Cortex	0	0	0	0
-55	PAC.L	Paracingulate Gyrus	0	0	0	0
-56	PAC.R	Paracingulate Gyrus	0	0	0	0
-57	CGa.L	"Cingulate Gyrus, anterior division"	0	0	0	0
-58	CGa.R	"Cingulate Gyrus, anterior division"	0	0	0	0
-59	CGp.L	"Cingulate Gyrus, posterior division"	0	0	0	0
-60	CGp.R	"Cingulate Gyrus, posterior division"	0	0	0	0
-61	PCN.L	Precuneous Cortex	0	0	0	0
-62	PCN.R	Precuneous Cortex	0	0	0	0
-63	CN.L	Cuneal Cortex	0	0	0	0
-64	CN.R	Cuneal Cortex	0	0	0	0
-65	FOC.L	Frontal Orbital Cortex	0	0	0	0
-66	FOC.R	Frontal Orbital Cortex	0	0	0	0
-67	PHa.L	"Parahippocampal Gyrus, anterior division"	0	0	0	0
-68	PHa.R	"Parahippocampal Gyrus, anterior division"	0	0	0	0
-69	PHp.L	"Parahippocampal Gyrus, posterior division"	0	0	0	0
-70	PHp.R	"Parahippocampal Gyrus, posterior division"	0	0	0	0
-71	LG.L	Lingual Gyrus	0	0	0	0
-72	LG.R	Lingual Gyrus	0	0	0	0
-73	TFa.L	"Temporal Fusiform Cortex, anterior division"	0	0	0	0
-74	TFa.R	"Temporal Fusiform Cortex, anterior division"	0	0	0	0
-75	TFp.L	"Temporal Fusiform Cortex, posterior division"	0	0	0	0
-76	TFp.R	"Temporal Fusiform Cortex, posterior division"	0	0	0	0
-77	TOF.L	Temporal Occipital Fusiform Cortex	0	0	0	0
-78	TOF.R	Temporal Occipital Fusiform Cortex	0	0	0	0
-79	OF.L	Occipital Fusiform Gyrus	0	0	0	0
-80	OF.R	Occipital Fusiform Gyrus	0	0	0	0
-81	FO.L	Frontal Operculum Cortex	0	0	0	0
-82	FO.R	Frontal Operculum Cortex	0	0	0	0
-83	CO.L	Central Opercular Cortex	0	0	0	0
-84	CO.R	Central Opercular Cortex	0	0	0	0
-85	PO.L	Parietal Operculum Cortex	0	0	0	0
-86	PO.R	Parietal Operculum Cortex	0	0	0	0
-87	PP.L	Planum Polare	0	0	0	0
-88	PP.R	Planum Polare	0	0	0	0
-89	H.L	Heschl's Gyrus (includes H1 and H2)	0	0	0	0
-90	H.R	Heschl's Gyrus (includes H1 and H2)	0	0	0	0
-91	PT.L	Planum Temporale	0	0	0	0
-92	PT.R	Planum Temporale	0	0	0	0
-93	SCLC.L	Supracalcarine Cortex	0	0	0	0
-94	SCLC.R	Supracalcarine Cortex	0	0	0	0
-95	OP.L	Occipital Pole	0	0	0	0
-96	OP.R	Occipital Pole	0	0	0	0
-97	Thal.L	Left Thalamus	0	0	0	0
-98	Thal.R	Right Thalamus	0	0	0	0
-99	Caud.L	Left Caudate	0	0	0	0
-100	Caud.R	Right Caudate	0	0	0	0
-101	Put.L	Left Putamen	0	0	0	0
-102	Put.R	Right Putamen	0	0	0	0
-103	Pall.L	Left Pallidum	0	0	0	0
-104	Pall.R	Right Pallidum	0	0	0	0
-105	Hip.L	Left Hippocampus	0	0	0	0
-106	Hip.R	Right Hippocampus	0	0	0	0
-107	Amy.L	Left Amygdala	0	0	0	0
-108	Amy.R	Right Amygdala	0	0	0	0
-109	Accbns.L	Left Accumbens	0	0	0	0
-110	Accbns.R	Right Accumbens	0	0	0	0
+1	FP.L	Frontal_Pole	0	0	0	0
+2	FP.R	Frontal_Pole	0	0	0	0
+3	INS.L	Insular_Cortex	0	0	0	0
+4	INS.R	Insular_Cortex	0	0	0	0
+5	F1.L	Superior_Frontal_Gyrus	0	0	0	0
+6	F1.R	Superior_Frontal_Gyrus	0	0	0	0
+7	F2.L	Middle_Frontal_Gyrus	0	0	0	0
+8	F2.R	Middle_Frontal_Gyrus	0	0	0	0
+9	F3t.L	Inferior_Frontal_Gyrus_pars_triangularis	0	0	0	0
+10	F3t.R	Inferior_Frontal_Gyrus_pars_triangularis	0	0	0	0
+11	F3o.L	Inferior_Frontal_Gyrus_pars_opercularis	0	0	0	0
+12	F3o.R	Inferior_Frontal_Gyrus_pars_opercularis	0	0	0	0
+13	PRG.L	Precentral_Gyrus	0	0	0	0
+14	PRG.R	Precentral_Gyrus	0	0	0	0
+15	TP.L	Temporal_Pole	0	0	0	0
+16	TP.R	Temporal_Pole	0	0	0	0
+17	T1a.L	Superior_Temporal_Gyrus_anterior_division	0	0	0	0
+18	T1a.R	Superior_Temporal_Gyrus_anterior_division	0	0	0	0
+19	T1p.L	Superior_Temporal_Gyrus_posterior_division	0	0	0	0
+20	T1p.R	Superior_Temporal_Gyrus_posterior_division	0	0	0	0
+21	T2a.L	Middle_Temporal_Gyrus_anterior_division	0	0	0	0
+22	T2a.R	Middle_Temporal_Gyrus_anterior_division	0	0	0	0
+23	T2p.L	Middle_Temporal_Gyrus_posterior_division	0	0	0	0
+24	T2p.R	Middle_Temporal_Gyrus_posterior_division	0	0	0	0
+25	TO2.L	Middle_Temporal_Gyrus_temporooccipital_part	0	0	0	0
+26	TO2.R	Middle_Temporal_Gyrus_temporooccipital_part	0	0	0	0
+27	T3a.L	Inferior_Temporal_Gyrus_anterior_division	0	0	0	0
+28	T3a.R	Inferior_Temporal_Gyrus_anterior_division	0	0	0	0
+29	T3p.L	Inferior_Temporal_Gyrus_posterior_division	0	0	0	0
+30	T3p.R	Inferior_Temporal_Gyrus_posterior_division	0	0	0	0
+31	TO3.L	Inferior_Temporal_Gyrus_temporooccipital_part	0	0	0	0
+32	TO3.R	Inferior_Temporal_Gyrus_temporooccipital_part	0	0	0	0
+33	POG.L	Postcentral_Gyrus	0	0	0	0
+34	POG.R	Postcentral_Gyrus	0	0	0	0
+35	SPL.L	Superior_Parietal_Lobule	0	0	0	0
+36	SPL.R	Superior_Parietal_Lobule	0	0	0	0
+37	SGa.L	Supramarginal_Gyrus_anterior_division	0	0	0	0
+38	SGa.R	Supramarginal_Gyrus_anterior_division	0	0	0	0
+39	SGp.L	Supramarginal_Gyrus_posterior_division	0	0	0	0
+40	SGp.R	Supramarginal_Gyrus_posterior_division	0	0	0	0
+41	AG.L	Angular_Gyrus	0	0	0	0
+42	AG.R	Angular_Gyrus	0	0	0	0
+43	OLs.L	Lateral_Occipital_Cortex_superior_division	0	0	0	0
+44	OLs.R	Lateral_Occipital_Cortex_superior_division	0	0	0	0
+45	OLi.L	Lateral_Occipital_Cortex_inferior_division	0	0	0	0
+46	OLi.R	Lateral_Occipital_Cortex_inferior_division	0	0	0	0
+47	CALC.L	Intracalcarine_Cortex	0	0	0	0
+48	CALC.R	Intracalcarine_Cortex	0	0	0	0
+49	FMC.L	Frontal_Medial_Cortex	0	0	0	0
+50	FMC.R	Frontal_Medial_Cortex	0	0	0	0
+51	SMC.L	Juxtapositional_Lobule_Cortex_formerly_Supplementary_Motor_Cortex	0	0	0	0
+52	SMC.R	Juxtapositional_Lobule_Cortex_formerly_Supplementary_Motor_Cortex	0	0	0	0
+53	SC.L	Subcallosal_Cortex	0	0	0	0
+54	SC.R	Subcallosal_Cortex	0	0	0	0
+55	PAC.L	Paracingulate_Gyrus	0	0	0	0
+56	PAC.R	Paracingulate_Gyrus	0	0	0	0
+57	CGa.L	Cingulate_Gyrus_anterior_division	0	0	0	0
+58	CGa.R	Cingulate_Gyrus_anterior_division	0	0	0	0
+59	CGp.L	Cingulate_Gyrus_posterior_division	0	0	0	0
+60	CGp.R	Cingulate_Gyrus_posterior_division	0	0	0	0
+61	PCN.L	Precuneous_Cortex	0	0	0	0
+62	PCN.R	Precuneous_Cortex	0	0	0	0
+63	CN.L	Cuneal_Cortex	0	0	0	0
+64	CN.R	Cuneal_Cortex	0	0	0	0
+65	FOC.L	Frontal_Orbital_Cortex	0	0	0	0
+66	FOC.R	Frontal_Orbital_Cortex	0	0	0	0
+67	PHa.L	Parahippocampal_Gyrus_anterior_division	0	0	0	0
+68	PHa.R	Parahippocampal_Gyrus_anterior_division	0	0	0	0
+69	PHp.L	Parahippocampal_Gyrus_posterior_division	0	0	0	0
+70	PHp.R	Parahippocampal_Gyrus_posterior_division	0	0	0	0
+71	LG.L	Lingual_Gyrus	0	0	0	0
+72	LG.R	Lingual_Gyrus	0	0	0	0
+73	TFa.L	Temporal_Fusiform_Cortex_anterior_division	0	0	0	0
+74	TFa.R	Temporal_Fusiform_Cortex_anterior_division	0	0	0	0
+75	TFp.L	Temporal_Fusiform_Cortex_posterior_division	0	0	0	0
+76	TFp.R	Temporal_Fusiform_Cortex_posterior_division	0	0	0	0
+77	TOF.L	Temporal_Occipital_Fusiform_Cortex	0	0	0	0
+78	TOF.R	Temporal_Occipital_Fusiform_Cortex	0	0	0	0
+79	OF.L	Occipital_Fusiform_Gyrus	0	0	0	0
+80	OF.R	Occipital_Fusiform_Gyrus	0	0	0	0
+81	FO.L	Frontal_Operculum_Cortex	0	0	0	0
+82	FO.R	Frontal_Operculum_Cortex	0	0	0	0
+83	CO.L	Central_Opercular_Cortex	0	0	0	0
+84	CO.R	Central_Opercular_Cortex	0	0	0	0
+85	PO.L	Parietal_Operculum_Cortex	0	0	0	0
+86	PO.R	Parietal_Operculum_Cortex	0	0	0	0
+87	PP.L	Planum_Polare	0	0	0	0
+88	PP.R	Planum_Polare	0	0	0	0
+89	H.L	Heschls_Gyrus_includes_H1_and_H2	0	0	0	0
+90	H.R	Heschls_Gyrus_includes_H1_and_H2	0	0	0	0
+91	PT.L	Planum_Temporale	0	0	0	0
+92	PT.R	Planum_Temporale	0	0	0	0
+93	SCLC.L	Supracalcarine_Cortex	0	0	0	0
+94	SCLC.R	Supracalcarine_Cortex	0	0	0	0
+95	OP.L	Occipital_Pole	0	0	0	0
+96	OP.R	Occipital_Pole	0	0	0	0
+97	Thal.L	Left_Thalamus	0	0	0	0
+98	Thal.R	Right_Thalamus	0	0	0	0
+99	Caud.L	Left_Caudate	0	0	0	0
+100	Caud.R	Right_Caudate	0	0	0	0
+101	Put.L	Left_Putamen	0	0	0	0
+102	Put.R	Right_Putamen	0	0	0	0
+103	Pall.L	Left_Pallidum	0	0	0	0
+104	Pall.R	Right_Pallidum	0	0	0	0
+105	Hip.L	Left_Hippocampus	0	0	0	0
+106	Hip.R	Right_Hippocampus	0	0	0	0
+107	Amy.L	Left_Amygdala	0	0	0	0
+108	Amy.R	Right_Amygdala	0	0	0	0
+109	Accbns.L	Left_Accumbens	0	0	0	0
+110	Accbns.R	Right_Accumbens	0	0	0	0
 						
 						
 						

@@ -22,7 +22,7 @@ SIMGANTS=#SIMGANTS#
 
 # >>>>>>>>>> running >>>>>>>>>>>>>
 cd $proj
-NUMSTREAMLINES=1M
+NUMSTREAMLINES=50M
 subDwiPath=$der/$SUBID/dwi
 subAnatPath=$der/$SUBID/anat
 # response and FODs

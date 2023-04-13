@@ -30,7 +30,7 @@ SIMGANTS=#SIMGANTS#
 cd $proj
 subDwiPath=$der/$SUBID/dwi
 subAnatPath=$der/$SUBID/anat
-subFibsPath = $der/$SUBID/fibs
+subFibsPath=$der/$SUBID/fibs
 [ ! -d $subFibsPath ] && mkdir -p $subFibsPath
 
 # for atlas: mni to t1w

@@ -42,6 +42,7 @@ def func_Preprocessing(codeTplPath, projPath, rawPath, derPath, subId, numProc, 
         logging.info(p.stdout)
     except subprocess.CalledProcessError as err:
         logging.error("Error: ", err)
+        raise Exception("Preprocessing error.")
     
 def func_Tractography(codeTplPath, projPath, rawPath, derPath, subId, numProc, simgMrtrix3, simgANTs):
     logging.info(f"{subId}: tractography...")
@@ -62,6 +63,7 @@ def func_Tractography(codeTplPath, projPath, rawPath, derPath, subId, numProc, s
         logging.info(p.stdout)
     except subprocess.CalledProcessError as err:
         logging.error("Error: ", err)
+        raise Exception("Tractography error.")
     
 def func_Connectome(codeTplPath, projPath, rawPath, derPath, subId, numProc, tplMNI152Atlas, tplMNI152AtlasLut, tplMNI152AtlasPrefix, simgMrtrix3, simgANTs):
     logging.info(f"{subId}: connectome for {tplMNI152Atlas}...")
@@ -85,6 +87,7 @@ def func_Connectome(codeTplPath, projPath, rawPath, derPath, subId, numProc, tpl
         logging.info(p.stdout)
     except subprocess.CalledProcessError as err:
         logging.error("Error: ", err)
+        raise Exception("Connectome error.")
 
 def func_Filtered(codeTplPath, projPath, rawPath, derPath, subId, numProc, roiPath, roiPrefix, simgMrtrix3, simgANTs):
     logging.info(f"{subId}: filter for {roiPath}...")
@@ -107,7 +110,7 @@ def func_Filtered(codeTplPath, projPath, rawPath, derPath, subId, numProc, roiPa
         logging.info(p.stdout)
     except subprocess.CalledProcessError as err:
         logging.error("Error: ", err)
-
+        raise Exception("Filtered error.")
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
@@ -152,62 +155,69 @@ if __name__ == "__main__":
     # for each participants
     subOutPath = opj(der, subId)
     subLogPath = opj(subOutPath, "log")
-    os.renames(opj(subLogPath, "submited"), opj(subLogPath, "running"))    
-    func_Preprocessing(
-        codeTplPath=step1TplPath,
-        projPath=proj,
-        rawPath=raw,
-        derPath=der,
-        subId=subId,
-        numProc=numProc,
-        tplPath=tplPath,
-        tplT1wPath=tplT1wPath,
-        tplBrainPath=tplBrainPath,
-        tplBrainMaskPath=tplBrainMaskPath,
-        simgMrtrix3=simgMrtrix3,
-        simgANTs=simgANTs
-        )
     
-    func_Tractography(
-        codeTplPath=step2TplPath,
-        projPath=proj,
-        rawPath=raw,
-        derPath=der,
-        subId=subId,
-        numProc=numProc,
-        simgMrtrix3=simgMrtrix3,
-        simgANTs=simgANTs
-        )
-    
-    for j in atlasPaths:
-        logging.info(j)
-        func_Connectome(
-            codeTplPath=step3TplPath,
+    try:
+        os.renames(opj(subLogPath, "submited"), opj(subLogPath, "running"))
+        func_Preprocessing(
+            codeTplPath=step1TplPath,
             projPath=proj,
             rawPath=raw,
             derPath=der,
             subId=subId,
             numProc=numProc,
-            tplMNI152Atlas=j,
-            tplMNI152AtlasLut=j.replace(".nii.gz", "_mrlut.txt"),
-            tplMNI152AtlasPrefix=(j.split("_")[-2]).split("-")[-1],
-            simgMrtrix3=simgMrtrix3,
-            simgANTs=simgANTs
-        )
-        
-    for j in roiPaths:
-        logging.info(j)
-        func_Filtered(
-            codeTplPath=step4TplPath,
-            projPath=proj,
-            rawPath=raw,
-            derPath=der,
-            subId=subId,
-            numProc=numProc,
-            roiPath=j,
-            roiPrefix=(os.path.split(j)[-1]).replace(".nii.gz", "").replace("_", ""),
+            tplPath=tplPath,
+            tplT1wPath=tplT1wPath,
+            tplBrainPath=tplBrainPath,
+            tplBrainMaskPath=tplBrainMaskPath,
             simgMrtrix3=simgMrtrix3,
             simgANTs=simgANTs
             )
-    os.renames(opj(subLogPath, "running"), opj(subLogPath, "finished"))    
+        
+        func_Tractography(
+            codeTplPath=step2TplPath,
+            projPath=proj,
+            rawPath=raw,
+            derPath=der,
+            subId=subId,
+            numProc=numProc,
+            simgMrtrix3=simgMrtrix3,
+            simgANTs=simgANTs
+            )
+        
+        for j in atlasPaths:
+            logging.info(j)
+            func_Connectome(
+                codeTplPath=step3TplPath,
+                projPath=proj,
+                rawPath=raw,
+                derPath=der,
+                subId=subId,
+                numProc=numProc,
+                tplMNI152Atlas=j,
+                tplMNI152AtlasLut=j.replace(".nii.gz", "_mrlut.txt"),
+                tplMNI152AtlasPrefix=(j.split("_")[-2]).split("-")[-1],
+                simgMrtrix3=simgMrtrix3,
+                simgANTs=simgANTs
+            )
+            
+        for j in roiPaths:
+            logging.info(j)
+            func_Filtered(
+                codeTplPath=step4TplPath,
+                projPath=proj,
+                rawPath=raw,
+                derPath=der,
+                subId=subId,
+                numProc=numProc,
+                roiPath=j,
+                roiPrefix=(os.path.split(j)[-1]).replace(".nii.gz", "").replace("_", ""),
+                simgMrtrix3=simgMrtrix3,
+                simgANTs=simgANTs
+                )
+        os.renames(opj(subLogPath, "running"), opj(subLogPath, "finished")) 
+        shutil.rmtree(opj(der, subId, "anat"))
+        shutil.rmtree(opj(der, subId, "dwi"))
+    except Exception as err:
+        logging.error(err)
+        
     logging.info(f"{subId} done.")
