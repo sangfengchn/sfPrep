@@ -62,7 +62,7 @@ if __name__ == "__main__":
     
     # config queue
     numProc = 12
-    numJobLimit = 40
+    numJobLimit = 20
     queueName = "v6_384"
     
     # for each participants
@@ -78,9 +78,12 @@ if __name__ == "__main__":
         subDerPath = opj(der, subId)
         subLogPath = opj(subDerPath, "log")
         if not os.path.exists(subLogPath): os.makedirs(subLogPath)
-        if (os.path.exists(opj(subLogPath, "submited")) or
-            os.path.exists(opj(subLogPath, "running")) or
-            os.path.exists(opj(subLogPath, "finished"))):
+        # if (os.path.exists(opj(subLogPath, "submited")) or
+        #     os.path.exists(opj(subLogPath, "running")) or
+        #     os.path.exists(opj(subLogPath, "finished"))):
+        #     continue
+        
+        if not os.path.exists(opj(subLogPath, "running")):
             continue
         
         logging.info(subId)
@@ -96,5 +99,4 @@ if __name__ == "__main__":
                     roisPath=roisPath, 
                     numProc=numProc, 
                     queue=queueName)
-        break
     logging.info("Submit done.")
