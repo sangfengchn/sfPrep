@@ -56,6 +56,7 @@ singularity exec $SIMGMRTRIX3 tckedit \
     -include $subAnatPath/t1w2dwiRoi_${roiPrefix}.nii.gz \
     -tck_weights_in $subDwiPath/sift_weight.txt \
     -nthreads $NUMPROC \
+    -force \
     $subDwiPath/streamlines.tck \
     $subDwiPath/streamlines_${roiPrefix}.tck
 

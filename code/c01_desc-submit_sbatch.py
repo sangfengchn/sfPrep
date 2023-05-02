@@ -67,8 +67,8 @@ if __name__ == "__main__":
     
     # for each participants
     for i in glob(opj(raw, "sub-*")):
-        subId = os.path.split(i)[-1] 
-        
+        subId = os.path.split(i)[-1]
+                
         # the preprocess need dwi and t1w
         if not (os.path.exists(opj(i, "anat")) or os.path.exists(opj(i, "dwi"))): continue
         
@@ -78,12 +78,9 @@ if __name__ == "__main__":
         subDerPath = opj(der, subId)
         subLogPath = opj(subDerPath, "log")
         if not os.path.exists(subLogPath): os.makedirs(subLogPath)
-        # if (os.path.exists(opj(subLogPath, "submited")) or
-        #     os.path.exists(opj(subLogPath, "running")) or
-        #     os.path.exists(opj(subLogPath, "finished"))):
-        #     continue
-        
-        if not os.path.exists(opj(subLogPath, "running")):
+        if (os.path.exists(opj(subLogPath, "submited")) or
+            os.path.exists(opj(subLogPath, "running")) or
+            os.path.exists(opj(subLogPath, "finished"))):
             continue
         
         logging.info(subId)
