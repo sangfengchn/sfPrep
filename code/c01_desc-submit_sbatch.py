@@ -80,7 +80,8 @@ if __name__ == "__main__":
         if not os.path.exists(subLogPath): os.makedirs(subLogPath)
         if (os.path.exists(opj(subLogPath, "submited")) or
             os.path.exists(opj(subLogPath, "running")) or
-            os.path.exists(opj(subLogPath, "finished"))):
+            os.path.exists(opj(subLogPath, "finished")) or
+            os.path.exists(opj(subLogPath, "copied"))):
             continue
         
         logging.info(subId)
