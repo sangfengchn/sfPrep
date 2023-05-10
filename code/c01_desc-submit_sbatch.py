@@ -62,7 +62,7 @@ if __name__ == "__main__":
     
     # config queue
     numProc = 12
-    numJobLimit = 10
+    numJobLimit = 15
     queueName = "v6_384"
     
     # for each participants

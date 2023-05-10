@@ -158,20 +158,20 @@ if __name__ == "__main__":
     
     try:
         os.renames(opj(subLogPath, "submited"), opj(subLogPath, "running"))
-        # func_Preprocessing(
-        #     codeTplPath=step1TplPath,
-        #     projPath=proj,
-        #     rawPath=raw,
-        #     derPath=der,
-        #     subId=subId,
-        #     numProc=numProc,
-        #     tplPath=tplPath,
-        #     tplT1wPath=tplT1wPath,
-        #     tplBrainPath=tplBrainPath,
-        #     tplBrainMaskPath=tplBrainMaskPath,
-        #     simgMrtrix3=simgMrtrix3,
-        #     simgANTs=simgANTs
-        #     )
+        func_Preprocessing(
+            codeTplPath=step1TplPath,
+            projPath=proj,
+            rawPath=raw,
+            derPath=der,
+            subId=subId,
+            numProc=numProc,
+            tplPath=tplPath,
+            tplT1wPath=tplT1wPath,
+            tplBrainPath=tplBrainPath,
+            tplBrainMaskPath=tplBrainMaskPath,
+            simgMrtrix3=simgMrtrix3,
+            simgANTs=simgANTs
+            )
         
         func_Tractography(
             codeTplPath=step2TplPath,
