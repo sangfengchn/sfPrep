@@ -66,10 +66,11 @@ if __name__ == "__main__":
     queueName = "v6_384"
     
     # for each participants
-    for i in glob(opj(raw, "sub-*")):
+    for i in glob(opj(der, "sub-*")):
         subId = os.path.split(i)[-1]
         if subId != "sub-BNU1": continue
-                
+        if os.path.exists(opj(i, "log", "copied")): continue
+        
         # the preprocess need dwi and t1w
         if not (os.path.exists(opj(i, "anat")) or os.path.exists(opj(i, "dwi"))): continue
         
