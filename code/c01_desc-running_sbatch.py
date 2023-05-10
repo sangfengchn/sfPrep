@@ -158,31 +158,31 @@ if __name__ == "__main__":
     
     try:
         os.renames(opj(subLogPath, "submited"), opj(subLogPath, "running"))
-        func_Preprocessing(
-            codeTplPath=step1TplPath,
-            projPath=proj,
-            rawPath=raw,
-            derPath=der,
-            subId=subId,
-            numProc=numProc,
-            tplPath=tplPath,
-            tplT1wPath=tplT1wPath,
-            tplBrainPath=tplBrainPath,
-            tplBrainMaskPath=tplBrainMaskPath,
-            simgMrtrix3=simgMrtrix3,
-            simgANTs=simgANTs
-            )
+        # func_Preprocessing(
+        #     codeTplPath=step1TplPath,
+        #     projPath=proj,
+        #     rawPath=raw,
+        #     derPath=der,
+        #     subId=subId,
+        #     numProc=numProc,
+        #     tplPath=tplPath,
+        #     tplT1wPath=tplT1wPath,
+        #     tplBrainPath=tplBrainPath,
+        #     tplBrainMaskPath=tplBrainMaskPath,
+        #     simgMrtrix3=simgMrtrix3,
+        #     simgANTs=simgANTs
+        #     )
         
-        func_Tractography(
-            codeTplPath=step2TplPath,
-            projPath=proj,
-            rawPath=raw,
-            derPath=der,
-            subId=subId,
-            numProc=numProc,
-            simgMrtrix3=simgMrtrix3,
-            simgANTs=simgANTs
-            )
+        # func_Tractography(
+        #     codeTplPath=step2TplPath,
+        #     projPath=proj,
+        #     rawPath=raw,
+        #     derPath=der,
+        #     subId=subId,
+        #     numProc=numProc,
+        #     simgMrtrix3=simgMrtrix3,
+        #     simgANTs=simgANTs
+        #     )
         
         for j in atlasPaths:
             logging.info(j)
@@ -200,23 +200,23 @@ if __name__ == "__main__":
                 simgANTs=simgANTs
             )
             
-        for j in roiPaths:
-            logging.info(j)
-            func_Filtered(
-                codeTplPath=step4TplPath,
-                projPath=proj,
-                rawPath=raw,
-                derPath=der,
-                subId=subId,
-                numProc=numProc,
-                roiPath=j,
-                roiPrefix=(os.path.split(j)[-1]).replace(".nii.gz", "").replace("_", ""),
-                simgMrtrix3=simgMrtrix3,
-                simgANTs=simgANTs
-                )
-        os.renames(opj(subLogPath, "running"), opj(subLogPath, "finished")) 
-        shutil.rmtree(opj(der, subId, "anat"))
-        shutil.rmtree(opj(der, subId, "dwi"))
+        # for j in roiPaths:
+        #     logging.info(j)
+        #     func_Filtered(
+        #         codeTplPath=step4TplPath,
+        #         projPath=proj,
+        #         rawPath=raw,
+        #         derPath=der,
+        #         subId=subId,
+        #         numProc=numProc,
+        #         roiPath=j,
+        #         roiPrefix=(os.path.split(j)[-1]).replace(".nii.gz", "").replace("_", ""),
+        #         simgMrtrix3=simgMrtrix3,
+        #         simgANTs=simgANTs
+        #         )
+        # os.renames(opj(subLogPath, "running"), opj(subLogPath, "finished")) 
+        # shutil.rmtree(opj(der, subId, "anat"))
+        # shutil.rmtree(opj(der, subId, "dwi"))
     except Exception as err:
         logging.error(err)
         
