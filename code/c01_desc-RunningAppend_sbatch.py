@@ -174,17 +174,17 @@ if __name__ == "__main__":
         #         simgMrtrix3=simgMrtrix3,
         #         simgANTs=simgANTs
         #         )
-        # if not os.path.exists(opj(subOutPath, "dwi", "sift_mu.txt")):
-        #     func_Tractography(
-        #         codeTplPath=step2TplPath,
-        #         projPath=proj,
-        #         rawPath=raw,
-        #         derPath=der,
-        #         subId=subId,
-        #         numProc=numProc,
-        #         simgMrtrix3=simgMrtrix3,
-        #         simgANTs=simgANTs
-        #         )
+        
+        func_Tractography(
+            codeTplPath=step2TplPath,
+            projPath=proj,
+            rawPath=raw,
+            derPath=der,
+            subId=subId,
+            numProc=numProc,
+            simgMrtrix3=simgMrtrix3,
+            simgANTs=simgANTs
+            )
         
         for j in atlasPaths:
             if not os.path.exists(opj(subOutPath, "net", f"mat_LengthOfStreamlines_{(j.split('_')[-2]).split('-')[-1]}.csv")):

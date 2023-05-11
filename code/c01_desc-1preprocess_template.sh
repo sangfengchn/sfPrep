@@ -47,8 +47,19 @@ do
     echo $i
     singularity exec $SIMGMRTRIX3 mrconvert $i ${i/.nii.gz/.mif} -fslgrad ${i/.nii.gz/.bvec} ${i/.nii.gz/.bval}
 done
-singularity exec $SIMGMRTRIX3 mrcat $subDwiPath/*.mif $subDwiPath/dwi.mif
-
+# mrcat need two input at least.
+# So when there is a run, we need to rename dwi filename manually.
+numOfdwi=`find $subDwiPath -name *_dwi.mif | wc -l`
+if [ $numOfdwi -gt 1 ]
+then
+    singularity exec $SIMGMRTRIX3 mrcat $subDwiPath/*.mif $subDwiPath/dwi.mif
+else
+    # only have one run of dwi
+    for i in `find $subDwiPath -name *_dwi.mif`
+    do
+        cp $i $subDwiPath/dwi.mif
+    done
+fi
 # denoised, Gibbs ringing removal, and motion corrected.
 singularity exec $SIMGMRTRIX3 dwidenoise \
     $subDwiPath/dwi.mif \

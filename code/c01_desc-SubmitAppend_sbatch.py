@@ -37,7 +37,7 @@ def func_submit(proj, rawdata, derivatives, subId, jobName, simgMrtrix3, simgANT
         "module load anaconda/3-Python-3.8.3-phonopy-phono3py\n"
         "module load singularity/3.8.4\n"
         f"cd {proj}\n"
-        f"python {proj}/code/c01_desc-running_sbatch.py --proj {proj} --rawdata {rawdata} --derivatives {derivatives} --participant_id {subId} --simg_mrtrix {simgMrtrix3} --simg_ants {simgANTs} --atlas_path {atlasPath} --rois_path {roisPath} --num_proc {numProc}\n"
+        f"python {proj}/code/c01_desc-RunningAppend_sbatch.py --proj {proj} --rawdata {rawdata} --derivatives {derivatives} --participant_id {subId} --simg_mrtrix {simgMrtrix3} --simg_ants {simgANTs} --atlas_path {atlasPath} --rois_path {roisPath} --num_proc {numProc}\n"
         "echo 'Congraduation! Job has been finished!'\n"
     )
     try:
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     # for each participants
     for i in glob(opj(der, "sub-*")):
         subId = os.path.split(i)[-1]
-        if subId != "sub-BNU1": continue
+        # if subId != "sub-BNU1": continue
         if os.path.exists(opj(i, "log", "copied")): continue
         
         # the preprocess need dwi and t1w
@@ -85,6 +85,7 @@ if __name__ == "__main__":
         #     os.path.exists(opj(subLogPath, "finished")) or
         #     os.path.exists(opj(subLogPath, "copied"))):
         #     continue
+        if not os.path.exists(opj(subDerPath, "anat", "5ttgmwmiInDwi.nii.gz")): continue
         
         logging.info(subId)
         with open(opj(subLogPath, "submited"), "w") as f: f.writelines("")
