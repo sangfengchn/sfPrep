@@ -41,7 +41,8 @@ singularity exec $SIMGMRTRIX3 dwi2response \
     $subDwiPath/gm_response_msmt5tt.txt \
     $subDwiPath/csf_response_msmt5tt.txt \
     -sfwm_fa_threshold 0.7 \
-    -nthreads $NUMPROC
+    -nthreads $NUMPROC \
+    -force
 
 # If only two unique b-values are available, it’s also possible to estimate only two tissue compartments, e.g., white matter and CSF. (https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2fod.html)
 singularity exec $SIMGMRTRIX3 dwi2fod \
@@ -76,6 +77,7 @@ singularity exec $SIMGMRTRIX3 tcksift2 \
     -out_mu $subDwiPath/sift_mu.txt \
     -out_coeffs $subDwiPath/sift_coeffs.txt \
     -nthreads $NUMPROC \
+    -force \
     $subDwiPath/streamlines.tck \
     $subDwiPath/wmfod_msmt5tt.mif \
     $subDwiPath/sift_weight.txt    
