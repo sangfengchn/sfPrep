@@ -93,7 +93,7 @@ if __name__ == "__main__":
                     rawdata=raw, 
                     derivatives=der, 
                     subId=subId, 
-                    jobName=f"dwi{subId}", 
+                    jobName=f"{subId[4:len(subId)]}", 
                     simgMrtrix3=simgMrtrix3, 
                     simgANTs=simgANTs, 
                     atlasPath=atlasPath, 
